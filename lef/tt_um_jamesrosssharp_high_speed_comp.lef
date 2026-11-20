@@ -5,8 +5,8 @@ VERSION 5.7 ;
 MACRO tt_um_jamesrosssharp_high_speed_comp
   CLASS BLOCK ;
   FOREIGN tt_um_jamesrosssharp_high_speed_comp ;
-  ORIGIN 0.000 0.000 ;
-  SIZE 161.000 BY 225.760 ;
+  ORIGIN -0.500 0.000 ;
+  SIZE 154.500 BY 225.760 ;
   PIN clk
     PORT
       LAYER met4 ;
@@ -26,6 +26,7 @@ MACRO tt_um_jamesrosssharp_high_speed_comp
     END
   END rst_n
   PIN ua[0]
+    ANTENNAGATEAREA 10.000000 ;
     PORT
       LAYER met4 ;
         RECT 151.810 0.000 152.710 1.000 ;
@@ -314,15 +315,14 @@ MACRO tt_um_jamesrosssharp_high_speed_comp
     END
   END uo_out[7]
   PIN VDPWR
-    DIRECTION INOUT ;
-    USE POWER ;
+    ANTENNAGATEAREA 3.894000 ;
+    ANTENNADIFFAREA 80.373199 ;
     PORT
       LAYER met4 ;
         RECT 1.000 5.000 3.000 220.760 ;
     END
   END VDPWR
   PIN VGND
-    DIRECTION INOUT ;
     USE GROUND ;
     PORT
       LAYER met4 ;
@@ -337,11 +337,11 @@ MACRO tt_um_jamesrosssharp_high_speed_comp
       LAYER met1 ;
         RECT 6.540 9.000 155.000 222.840 ;
       LAYER met2 ;
-        RECT 6.830 10.400 141.250 222.950 ;
+        RECT 6.830 10.400 152.560 222.950 ;
       LAYER met3 ;
-        RECT 0.500 9.500 144.900 223.100 ;
+        RECT 0.500 9.500 152.560 223.100 ;
       LAYER met4 ;
-        RECT 0.500 221.160 121.435 221.600 ;
+        RECT 0.500 221.160 152.560 221.600 ;
         RECT 0.500 138.810 0.600 221.160 ;
         RECT 0.500 138.660 1.000 138.810 ;
         RECT 0.500 135.960 0.650 138.660 ;
@@ -350,8 +350,18 @@ MACRO tt_um_jamesrosssharp_high_speed_comp
         RECT 0.500 12.350 1.000 12.500 ;
         RECT 0.500 9.650 0.650 12.350 ;
         RECT 0.500 9.500 1.000 9.650 ;
-        RECT 3.400 9.500 3.600 221.160 ;
-        RECT 6.400 9.500 121.435 221.160 ;
+        RECT 0.500 4.600 0.600 9.500 ;
+        RECT 3.400 4.600 3.600 221.160 ;
+        RECT 6.400 4.600 152.560 221.160 ;
+        RECT 0.500 1.400 152.560 4.600 ;
+        RECT 0.500 1.000 16.170 1.400 ;
+        RECT 17.870 1.000 35.490 1.400 ;
+        RECT 37.190 1.000 54.810 1.400 ;
+        RECT 56.510 1.000 74.130 1.400 ;
+        RECT 75.830 1.000 93.450 1.400 ;
+        RECT 95.150 1.000 112.770 1.400 ;
+        RECT 114.470 1.000 132.090 1.400 ;
+        RECT 133.790 1.000 151.410 1.400 ;
   END
 END tt_um_jamesrosssharp_high_speed_comp
 END LIBRARY
