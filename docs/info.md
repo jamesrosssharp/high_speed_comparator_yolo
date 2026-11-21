@@ -23,7 +23,7 @@ The 1-bit frontend for the AM radio is simply the same comparator with external 
 
 ![flash_converter_iso](flash_converter_iso.png)
 
-The flash converter consists of 8 comparators and a resistive ladder to set the reference level at the comparators' negative terminal. It therefore produces a thermometric code of the input voltage.
+The flash converter consists of 8 comparators and a resistive ladder to set the reference level at the comparators' negative terminal. It therefore produces a thermometer code of the input voltage. It can be used as a low bit-count, high speed ADC.
 
 The analog pins used are:
 
@@ -32,7 +32,7 @@ The analog pins used are:
 
 ## How to test
 
-A basic test might consist of connecting a voltage source at 1.1V to ua[1], and a sinusoid with 1.1V offset and 0.5V amplitude (1Vpp) to ua[0]. Apply a clock signal to the core. You should see the 8-bit thermometric coded values matching the sin amplitude at uio_out[0:7] (uio_out[0] is MSB), and uio_o[0:1] should be square waves of corresponding frequency. Try sweeping the frequency up to the Nyquist rate and observe the output codes.
+A basic test might consist of connecting a voltage source at 1.1V to ua[1], and a sinusoid with 1.1V offset and 0.5V amplitude (1Vpp) to ua[0]. Apply a clock signal to the core. You should see the 8-bit thermometer coded values matching the sinusoid amplitude at uio_out[0:7] (uio_out[0] is MSB), and uio_o[0:1] should be square waves of corresponding frequency. Try sweeping the frequency up to the Nyquist rate and observe the output codes.
 
 To test the PWM circuit, disconnect the voltage source from ua[1] and apply a PWM signal to to ui_in[0]. Measure the voltage at ua[1] and see if it corresponds to what you'd expect from the duty cycle of the PWM signal.
 
