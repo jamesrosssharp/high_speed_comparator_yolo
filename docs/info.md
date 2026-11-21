@@ -13,15 +13,22 @@ You can also include images in this folder and reference them in the markdown. E
 
 This design contains 3 components: a high speed comparator, a quasi-sigma delta front end for receiving AM radio (to be used in conjunction with this [AM radio project](https://tinytapeout.com/chips/ttsky25a/tt_um_jamesrosssharp_1bitam), and a flash converter. 
 
+![high_speed_comp_iso](high_speed_comp_iso.png)
+
 The comparator is a clocked strong arm latch type comparator with common mode input range 0.5 - 1.7 volts. 
 
+![1bit_am_top](1bit_am_iso.png)
+
 The 1-bit frontend for the AM radio is simply the same comparator with external components to bias the positive input and allow a PWM signal to set the DC level at the negative input. It has been verified running at 250MHz clock speeds across temperature and process corner.
+
+![flash_converter_iso](flash_converter_iso.png)
 
 The flash converter consists of 8 comparators and a resistive ladder to set the reference level at the comparators' negative terminal. It therefore produces a thermometric code of the input voltage.
 
 The analog pins used are:
-    * ua[0] - positive input to comparator, antenna in, and flash converter input.
-    * ua[1] - negative input to comparator, or external cap for PWM
+
+* ua[0] - positive input to comparator, antenna in, and flash converter input.
+* ua[1] - negative input to comparator, or external cap for PWM
 
 ## How to test
 
