@@ -43,6 +43,7 @@ MACRO tt_um_jamesrosssharp_high_speed_comp
   PIN ua[1]
     DIRECTION INOUT ;
     USE SIGNAL ;
+    ANTENNAGATEAREA 10.000000 ;
     PORT
       LAYER met4 ;
         RECT 132.490 0.000 133.390 1.000 ;
