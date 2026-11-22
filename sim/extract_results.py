@@ -41,14 +41,14 @@ def load_corner(corner):
                 break
             j += 1
 
-        power = np.abs(plot['data']['v(vdd)']*plot['data']['i(vvdd)'])[100:]
+        power = np.abs(plot['data']['v(vdpwr)']*plot['data']['i(vvdpwr)'])[100:]
         power_min.append(np.min(power))
         power_max.append(np.max(power))
         power_av.append(np.mean(power))
 
-        vdd = plot['data']['v(vdd)'][0]
+        vdd = plot['data']['v(vdpwr)'][0]
         temp = (plot['data']['v(temperat)'][0])
-        current = np.abs(plot['data']['i(vvdd)'][100:])   
+        current = np.abs(plot['data']['i(vvdpwr)'][100:])   
 
 
         if 1:
@@ -62,10 +62,8 @@ def load_corner(corner):
                     lab = f"uo_out[{i - 8}]"
 
                 plt.plot(plot['data']['time'][j:], plot['data'][f'v(out{i})'][j:] + 2.0 * (i+3), label=lab)
-            #plt.plot(plot['data']['v(x1.x2.vlat_plus)'], label = 'vlatp')
-            #plt.plot(plot['data']['v(x1.x2.vlat_minus)'], label = 'vlatm')
             plt.yticks([])
-            plt.title(f"Waveforms for corner {corner}, vdd = {vdd} V, temp = {temp} deg. C, power avg. = {np.mean(power)}")
+            plt.title(f"Waveforms for corner {corner}, vdd = {vdd:1.2f} V, temp = {temp:1.2f} deg. C, av. power = {np.mean(power):1.2e} W")
             plt.xlabel(f"Time, s")
             plt.legend()
             plt.show()
@@ -73,5 +71,8 @@ def load_corner(corner):
         
 for corner in ["tt", "ss", "sf", "fs", "ff"]:
 #for corner in ["tt"]: #, "ss", "sf"]:
-    load_corner(corner)
-
+    try:
+        load_corner(corner)
+    except Exception as e:
+        print(e)
+        pass

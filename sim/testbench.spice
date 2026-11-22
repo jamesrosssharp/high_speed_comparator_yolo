@@ -20,7 +20,7 @@ x1 CLK VGND VGND
 + VDPWR VGND tt_um_jamesrosssharp_high_speed_comp
 VPLUS INP GND sin(1.1 0.6 1Meg 0 0)
 VCLK1 CLK GND PULSE(0 1.8 0 1NS 1NS 10NS 20NS 0)
-V3 VDPWR GND 'VCC'
+VVDPWR VDPWR GND 'VCC'
 V1 VGND GND 0
 R1 net1 GND 1Meg m=1
 R2 GND net2 1Meg m=1
@@ -46,7 +46,7 @@ VCLK2 PWM GND PULSE(0 1.8 0 1NS 1NS 22NS 45NS 0)
   reset
   set appendwrite
   dowhile run < = 5
-    save vdd i(vvdd) temperat clk INP INN OUT0 OUT1 OUT2 OUT3 OUT4 OUT5 OUT6 OUT7 OUT8 OUT9
+    save vdpwr i(vvdwpr) temperat clk INP INN OUT0 OUT1 OUT2 OUT3 OUT4 OUT5 OUT6 OUT7 OUT8 OUT9
     *save all
     tran 2n 5u uic
     write ${RAW_FILE}
