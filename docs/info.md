@@ -108,7 +108,7 @@ The thresholds track VDD, because the ladder is tied to the supply.
 ### Basic comparator and flash converter test
 
 1. Connect a 1.1 V DC source to `ua[1]`.
-2. Connect a sinusoid to `ua[0]`: 1.1 V offset, 0.6 V amplitude (1 Vpp).
+2. Connect a sinusoid to `ua[0]`: 1.1 V offset, 0.6 V amplitude (1.2 Vpp).
 3. Apply a clock (the design is specified at 50 MHz).
 
 You should see:

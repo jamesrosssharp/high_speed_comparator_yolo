@@ -24,5 +24,8 @@ extract_results: $(RAW_FILES)
 	@mkdir -p results
 	python3 extract_results.py | tee results/results.txt
 
+quick: tt_um_jamesrosssharp_high_speed_comp.pex.spice testbench-quick.spice
+	@ngspice testbench-quick.spice
+
 clean:
 	rm -rf $(BUILD_DIR)
