@@ -19,6 +19,8 @@ This design contains three blocks, all built around one clocked comparator:
 
 Together that is ten copies of the same comparator. All of them are clocked from the Tiny Tapeout `clk` pin through a `clkbuf_16`. Every digital output goes through a `buf_4` before it reaches its pad.
 
+The design files for this project are in this repository: [https://github.com/jamesrosssharp/magma](https://github.com/jamesrosssharp/magma). The design was routed using MagMa (MAgic MAnipulator) that reads and writes .mag files.
+
 ### High speed comparator
 
 ![High speed comparator](high_speed_comp_iso.png)
