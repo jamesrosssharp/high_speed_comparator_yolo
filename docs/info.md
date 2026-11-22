@@ -14,7 +14,7 @@ You can also include images in this folder and reference them in the markdown. E
 This design contains three blocks, all built around one clocked comparator:
 
 1. A **high speed comparator**, brought out directly on the analog pins.
-2. A **quasi-sigma-delta (1-bit) front end** for receiving AM radio. It is meant to work with this [AM radio project](https://tinytapeout.com/chips/ttsky25a/tt_um_jamesrosssharp_1bitam).
+2. A **quasi-sigma-delta (1-bit) front end** for receiving AM radio. It is meant to work with this AM radio project: [https://tinytapeout.com/chips/ttsky25a/tt_um_jamesrosssharp_1bitam](https://tinytapeout.com/chips/ttsky25a/tt_um_jamesrosssharp_1bitam).
 3. An **8-level flash converter** that produces a thermometer code.
 
 Together that is ten copies of the same comparator. All of them are clocked from the Tiny Tapeout `clk` pin through a `clkbuf_16`. Every digital output goes through a `buf_4` before it reaches its pad.
@@ -106,14 +106,14 @@ The thresholds track VDD, because the ladder is tied to the supply.
 ### Basic comparator and flash converter test
 
 1. Connect a 1.1 V DC source to `ua[1]`.
-2. Connect a sinusoid to `ua[0]`: 1.1 V offset, 0.5 V amplitude (1 Vpp).
+2. Connect a sinusoid to `ua[0]`: 1.1 V offset, 0.6 V amplitude (1 Vpp).
 3. Apply a clock (the design is specified at 50 MHz).
 
 You should see:
 
 * `uo_out[1]` (COMP_OUT): a square wave at the input frequency, high while `ua[0]` > 1.1 V.
 * `uo_out[0]` (RF_FRONTEND_OUT): also a square wave at the input frequency. This input is AC coupled and re-biased to about 0.9 V, so expect the duty cycle to differ from COMP_OUT, and the output to stop toggling at low frequencies (below a few hundred kHz).
-* `uio_out[7:0]`: a thermometer code that follows the sinusoid's amplitude. With a 0.6–1.6 V swing, the outputs from `uio_out[7]` (0.60 V threshold) to `uio_out[1]` (1.50 V threshold) should toggle, and `uio_out[0]` (1.65 V) should stay low.
+* `uio_out[7:0]`: a thermometer code that follows the sinusoid's amplitude. With a 0.5–1.7 V swing, the outputs from `uio_out[7]` (0.60 V threshold) to `uio_out[0]` (1.65 V threshold) should toggle.
 
 ![expected waveforms for basic functional test](waveforms.png)
 
@@ -140,4 +140,4 @@ If all goes well, you may be able to tune in a few stations. This submission is 
 * Oscilloscope or logic analyser for the outputs
 * Antenna wire (about 5 m)
 * 1 nF capacitor
-* FPGA or microcontroller running the [1-bit AM radio](https://tinytapeout.com/chips/ttsky25a/tt_um_jamesrosssharp_1bitam) design, for the radio test
+* FPGA running the [1-bit AM radio](https://tinytapeout.com/chips/ttsky25a/tt_um_jamesrosssharp_1bitam) design, or a Tiny Tapeout sky25a dev kit, for the radio test
