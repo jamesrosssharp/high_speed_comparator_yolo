@@ -23,6 +23,7 @@ extract warn all
 extract do resistance
 extract do unique
 extract do local
+extract do aliases
 extract path extfiles
 extresist threshold 10
 extract all
@@ -30,6 +31,7 @@ ext2spice lvs
 ext2spice cthresh 0.1
 ext2spice extresist on
 ext2spice -p extfiles -o $CELL.pex.spice
+feedback find
 feedback why
 quit -noprompt
 EOF
